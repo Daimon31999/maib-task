@@ -1,27 +1,18 @@
 import React from 'react'
+import data from '../data/data'
+import FormattedDate from './../FormattedDate'
 import {
   AreaChart,
   Area,
-  LineChart,
   XAxis,
   YAxis,
-  Line,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
 import { Card, CardContent, CardHeader } from '@material-ui/core'
 
-const data = [
-  { name: 'Page A', uc: 2500 },
-  { name: 'Page B', uc: 1000 },
-  { name: 'Page C', uc: 10000 },
-  { name: 'Page D', uc: 4500 },
-  { name: 'Page E', uc: 5000 },
-  { name: 'Page F', uc: 10000 },
-]
-
-const Chart = () => (
+const Chart = ({ dateRange }) => (
   <>
     <Card>
       <CardContent>
@@ -33,11 +24,11 @@ const Chart = () => (
             margin: '1rem',
           }}>
           <span>Numar de utilizatori</span>
-          <span>23 Aug - 21 Sep</span>
+          <FormattedDate dateRange={dateRange} />
         </div>
         <ResponsiveContainer width='100%' height={400}>
           <AreaChart
-            data={data}
+            data={data.chart}
             margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
             <defs>
               <linearGradient id='colorPv' x1='0' y1='0' x2='0' y2='1'>
