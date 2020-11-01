@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@date-io/date-fns": "1.x",
+    "@material-ui/pickers": "^3.2.10",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "date-fns": "^2.16.1",
+    "material-ui-phone-number": "^2.2.6",
     "materialui-daterange-picker": "^1.1.92",
     "prop-types": "^15.7.2",
     "ra-data-json-server": "^3.9.5",

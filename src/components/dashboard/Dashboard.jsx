@@ -1,9 +1,9 @@
 import React from 'react'
-import { Card, CardContent, CardHeader } from '@material-ui/core'
+import { Card, CardContent } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 
 import Chart from '../charts/Chart'
-import MyTable from '../tables/MyTable'
+import MyTable from '../tables/DashboardTable'
 import Title from '../Title'
 import PeriodPicker from '../PeriodPicker'
 
@@ -13,7 +13,7 @@ export default function Dashboard() {
   let endDate = new Date()
 
   const [dateRange, setDateRange] = React.useState({
-    label: '30 days',
+    label: 'This Month',
     startDate: startDate,
     endDate: endDate,
   })

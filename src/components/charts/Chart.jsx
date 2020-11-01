@@ -10,7 +10,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
-import { Card, CardContent, CardHeader } from '@material-ui/core'
+import { Card, CardContent } from '@material-ui/core'
 
 const Chart = ({ dateRange }) => (
   <>

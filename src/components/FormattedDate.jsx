@@ -11,6 +11,6 @@ export default function FormattedDate({ dateRange }) {
   }
   const startDate = formatDate(dateRange.startDate)
   const endDate = formatDate(dateRange.endDate)
-  const formattedDate = `${startDate} - ${endDate}`
+  const formattedDate = `${startDate} — ${endDate}`
   return <span>{formattedDate}</span>
 }

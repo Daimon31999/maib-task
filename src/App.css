@@ -1,3 +1,11 @@
+button {
+  color: white !important;
+}
+
+.materialui-daterange-picker-makeStyles-filled-171 {
+  background: #7AA734;
+}
+
 .App {
   text-align: center;
 }
@@ -38,12 +46,17 @@
 }
 
 .RaLogin-main-1 {
-  background: #61dafb !important;
+  background: #7AA734 !important;
+}
+
+.RaLogin-main-41 {
+  background-color: #7AA734 !important;
 }
 
 .header {
   background-color: #7AA734;
   margin-top: -8px;
+  padding: 16px 0;
 }
 
 .header h1 {
@@ -75,4 +88,42 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 1rem 0 0;
+}
+
+.my-row2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: -2rem -0.48rem;
+}
+
+.MuiFormLabel-root {
+  font-size: 1.1rem;
+}
+
+#test-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 650px;
+}
+
+#test-table td, #test-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#test-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#test-table tr:hover {
+  background-color: #ddd;
+}
+
+#test-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #7AA734;
+  color: white;
 }
