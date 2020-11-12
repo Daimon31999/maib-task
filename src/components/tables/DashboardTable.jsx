@@ -41,7 +41,6 @@ export default function MyTable() {
           </TableHead>
           <TableBody>
             {data.table.map((row) => {
-              console.log()
               return (
                 <TableRow key={row.date.toString()}>
                   <TableCell component='th' scope='row'>

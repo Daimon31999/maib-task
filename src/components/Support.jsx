@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 
@@ -36,6 +36,10 @@ export default function Support() {
   const [resultName, setResultName] = useState()
   const [searchResult, setSearchResult] = useState()
 
+  useEffect(() => {
+    search(data.users)
+  }, [])
+
   function search(data) {
     let tmpRes = []
 
@@ -45,9 +49,14 @@ export default function Support() {
       .filter((user) =>
         date ? +user.lastTransaction.getTime() === +date.getTime() : true
       )
-    console.log('search -> tmpRes', tmpRes)
 
-    setResultName(tmpRes.length ? tmpRes[0].userName.trim() : 'Not found')
+    let uniqueNames = [...new Set(tmpRes.map((user) => user.userName.trim()))]
+    uniqueNames =
+      uniqueNames.length > 4
+        ? uniqueNames.slice(0, 4).join(', ') + '...'
+        : uniqueNames
+    setResultName(uniqueNames || 'Not found')
+
     setSearchResult(tmpRes)
   }
 
