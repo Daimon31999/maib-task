@@ -127,3 +127,15 @@ button {
   background-color: #7AA734;
   color: white;
 }
+
+#my-popover-button {
+  background-color: '#F1F1EF';
+  color: '#6C6F74';
+  text-align: 'left';
+  width: '240px';
+  display: 'flex';
+  flex-direction: 'column';
+  padding: '11px 30px 11px 18px';
+  font-weight: '500';
+  position: 'relative';
+}

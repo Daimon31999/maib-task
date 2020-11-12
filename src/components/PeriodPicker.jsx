@@ -1,10 +1,25 @@
 import React from 'react'
 import { DateRangePicker } from 'materialui-daterange-picker'
 import moment from 'moment'
-
+import { makeStyles } from '@material-ui/core/styles'
 import Popover from '@material-ui/core/Popover'
 
+const useStyles = makeStyles({
+  button: {
+    backgroundColor: '#F1F1EF',
+    color: '#6C6F74',
+    textAlign: 'left',
+    width: '240px',
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '11px 30px 11px 18px',
+    fontWeight: '500',
+    position: 'relative',
+  },
+})
+
 export default function PeriodPicker({ dateRange, setDateRange }) {
+  const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
   const toggle = () => {
@@ -28,20 +43,7 @@ export default function PeriodPicker({ dateRange, setDateRange }) {
   return (
     <div>
       <div>
-        <div
-          id='popover-button'
-          style={{
-            backgroundColor: '#F1F1EF',
-            color: '#6C6F74',
-            textAlign: 'left',
-            width: '240px',
-            display: 'flex',
-            flexDirection: 'column',
-            padding: '11px 30px 11px 18px',
-            fontWeight: '500',
-            position: 'relative',
-          }}
-          onClick={handleClick}>
+        <div className={classes.button} onClick={handleClick}>
           <span
             style={{
               fontWeight: '900',

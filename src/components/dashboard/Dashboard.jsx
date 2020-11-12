@@ -6,8 +6,28 @@ import Chart from '../charts/Chart'
 import MyTable from '../tables/DashboardTable'
 import Title from '../Title'
 import PeriodPicker from '../PeriodPicker'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles({
+  card: {
+    width: '340px',
+  },
+  cardContent: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'baseline',
+  },
+  installs: {
+    fontWeight: '600',
+  },
+  boost: {
+    letterSpacing: '-0.2px',
+  },
+})
 
 export default function Dashboard() {
+  const classes = useStyles()
   let d = new Date() // tmp date object
   let startDate = d.setDate(d.getDate() - 30) // 30 day ago
   let endDate = new Date()
@@ -35,25 +55,14 @@ export default function Dashboard() {
         />
       </div>
       <br />
-      <Card
-        style={{
-          width: '340px',
-        }}>
+      <Card className={classes.card}>
         <CardContent>
-          <span style={{ fontWeight: '600' }}>
+          <span className={classes.installs}>
             Instalari pe dispozitive active
           </span>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'baseline',
-            }}>
+          <div className={classes.cardContent}>
             <h1>5,489</h1>
-            <span style={{ letterSpacing: '-0.2px' }}>
-              +3.79% vs previous 30days
-            </span>
+            <span className={classes.boost}>+3.79% vs previous 30days</span>
           </div>
         </CardContent>
       </Card>

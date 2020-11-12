@@ -5,8 +5,7 @@ import Button from '@material-ui/core/Button'
 import Title from './Title'
 import TextField from '@material-ui/core/TextField'
 import data from './data/data'
-import TestTable from './tables/TestTable'
-// import SupportTable from './tables/SupportTable'
+import SupportTable from './tables/SupportTable'
 import MuiPhoneNumber from 'material-ui-phone-number'
 
 const useStyles = makeStyles((theme) => ({
@@ -15,6 +14,14 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: '20ch',
     },
+  },
+  cautaUtilizatori: {
+    fontSize: '22px',
+    marginTop: '2rem',
+  },
+  myForm: {
+    display: 'flex',
+    alignItems: 'baseline',
   },
 }))
 
@@ -72,22 +79,12 @@ export default function Support() {
   return (
     <div>
       <Title title='Support' />
-      <h1
-        style={{
-          fontSize: '22px',
-          marginTop: '2rem',
-        }}>
-        Cauta utilizator:
-      </h1>
+      <h1 className={classes.cautaUtilizatori}>Cauta utilizator:</h1>
       <div className='my-row2'>
         <form
-          className={classes.root}
+          className={`${classes.root} ${classes.myForm}`}
           noValidate
-          autoComplete='off'
-          style={{
-            display: 'flex',
-            alignItems: 'baseline',
-          }}>
+          autoComplete='off'>
           <TextField
             id='IDNP'
             label='IDNP'
@@ -120,8 +117,7 @@ export default function Support() {
       </div>
       <h2>Resultate cautare: {resultName}</h2>
       <br />
-      <TestTable data={searchResult} />
-      {/* <SupportTable data={searchResult} /> */}
+      <SupportTable data={searchResult} />
     </div>
   )
 }
