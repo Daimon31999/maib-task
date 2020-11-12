@@ -1,17 +1,8 @@
 import React from 'react'
+import moment from 'moment'
 
 export default function MyTable({ data }) {
-  data = data ? data : []
-
-  const format = (date) => {
-    return `${('0' + date.getHours()).slice(-2)}:${(
-      '0' + date.getMinutes()
-    ).slice(-2)} ${('0' + date.getDate()).slice(-2)}/${(
-      '0' +
-      (date.getMonth() + 1)
-    ).slice(-2)}/${date.getFullYear() - 1}`
-  }
-
+  data = data || []
   return (
     <div>
       <table id='test-table'>
@@ -41,7 +32,7 @@ export default function MyTable({ data }) {
               <td>{row.IDNP}</td>
               <td>{row.phone}</td>
               <td>{row.PANCard}</td>
-              <td>{format(row.lastTransaction)}</td>
+              <td>{moment(row.lastTransaction).format('HH:mm DD/MM/YYYY')}</td>
             </tr>
           )
         })}
