@@ -43,12 +43,12 @@ export default function Support() {
   function search(data) {
     let tmpRes = []
 
-    tmpRes = data
-      .filter((user) => (idnp ? user.IDNP === idnp : true))
-      .filter((user) => (phone ? user.phone === phone : true))
-      .filter((user) =>
-        date ? +user.lastTransaction.getTime() === +date.getTime() : true
-      )
+    tmpRes = data.filter(
+      (user) =>
+        (!idnp || user.IDNP === idnp) &&
+        (!phone || user.phone === phone) &&
+        (!date || +user.lastTransaction.getTime() === +date.getTime())
+    )
 
     let uniqueNames = [...new Set(tmpRes.map((user) => user.userName.trim()))]
     uniqueNames =
