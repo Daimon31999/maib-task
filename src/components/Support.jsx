@@ -38,8 +38,7 @@ export default function Support() {
 
   useEffect(() => {
     search(data.users)
-  }, [])
-
+  }, [data])
   function search(data) {
     let tmpRes = []
 
