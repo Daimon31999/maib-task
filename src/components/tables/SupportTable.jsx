@@ -15,28 +15,8 @@ const useStyles = makeStyles({
 })
 
 export default function MyTable({ data }) {
-  const guidGenerator = () => {
-    var S4 = function () {
-      return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
-    }
-    return (
-      S4() +
-      S4() +
-      '-' +
-      S4() +
-      '-' +
-      S4() +
-      '-' +
-      S4() +
-      '-' +
-      S4() +
-      S4() +
-      S4()
-    )
-  }
-
   const classes = useStyles()
-  data = data ? data : []
+  data = data || []
   console.log('data', data)
 
   const format = (date) => {
@@ -75,7 +55,7 @@ export default function MyTable({ data }) {
               console.log('row', row)
 
               return (
-                <TableRow key={guidGenerator()}>
+                <TableRow>
                   <TableCell component='th' scope='row'>
                     {row.userName}
                   </TableCell>

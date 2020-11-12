@@ -1,26 +1,6 @@
 import React from 'react'
 
 export default function MyTable({ data }) {
-  const guidGenerator = () => {
-    var S4 = function () {
-      return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
-    }
-    return (
-      S4() +
-      S4() +
-      '-' +
-      S4() +
-      '-' +
-      S4() +
-      '-' +
-      S4() +
-      '-' +
-      S4() +
-      S4() +
-      S4()
-    )
-  }
-
   data = data ? data : []
 
   const format = (date) => {
@@ -54,7 +34,7 @@ export default function MyTable({ data }) {
         </tr>
         {data.map((row) => {
           return (
-            <tr key={guidGenerator()}>
+            <tr>
               <td component='th' scope='row'>
                 {row.userName}
               </td>
