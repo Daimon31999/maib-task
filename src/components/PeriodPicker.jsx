@@ -1,6 +1,6 @@
 import React from 'react'
 import { DateRangePicker } from 'materialui-daterange-picker'
-import FormattedDate from './FormattedDate'
+import moment from 'moment'
 
 import Popover from '@material-ui/core/Popover'
 
@@ -34,7 +34,7 @@ export default function PeriodPicker({ dateRange, setDateRange }) {
             backgroundColor: '#F1F1EF',
             color: '#6C6F74',
             textAlign: 'left',
-            width: '200px',
+            width: '240px',
             display: 'flex',
             flexDirection: 'column',
             padding: '11px 30px 11px 18px',
@@ -51,7 +51,8 @@ export default function PeriodPicker({ dateRange, setDateRange }) {
           <br />
           <div>
             <div>
-              <FormattedDate dateRange={dateRange} />
+              {moment(dateRange.startDate).format('DD MMM YYYY')} —{' '}
+              {moment(dateRange.endDate).format('DD MMM YYYY')}
             </div>
             <i
               style={{

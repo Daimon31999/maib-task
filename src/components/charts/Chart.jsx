@@ -1,6 +1,7 @@
 import React from 'react'
 import data from '../data/data'
-import FormattedDate from './../FormattedDate'
+import moment from 'moment'
+
 import {
   AreaChart,
   Area,
@@ -24,7 +25,8 @@ const Chart = ({ dateRange }) => (
             margin: '1rem',
           }}>
           <span>Numar de utilizatori</span>
-          <FormattedDate dateRange={dateRange} />
+          {moment(dateRange.startDate).format('DD MMM')} -
+          {moment(dateRange.endDate).format('DD MMM')}
         </div>
         <ResponsiveContainer width='100%' height={400}>
           <AreaChart
