@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "date-fns": "^2.16.1",
+    "libphonenumber-js": "^1.9.3",
     "material-ui-phone-number": "^2.2.6",
     "materialui-daterange-picker": "^1.1.92",
     "moment": "^2.29.1",

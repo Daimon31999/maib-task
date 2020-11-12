@@ -8,6 +8,8 @@ import data from './data/data'
 import SupportTable from './tables/SupportTable'
 import MuiPhoneNumber from 'material-ui-phone-number'
 
+import parsePhoneNumber from 'libphonenumber-js'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -53,17 +55,8 @@ export default function Support() {
     setIdnp(event.target.value.trim())
   }
   const handlePhoneChange = (value) => {
-    value = value
-      .split(' ')
-      .join('')
-      .split('(')
-      .join('')
-      .split(')')
-      .join('')
-      .split('-')
-      .join('')
     if (value.length < 12) setPhone(null)
-    else setPhone(value)
+    else setPhone(parsePhoneNumber(value).number)
   }
 
   const handleDateChange = (event) => {
