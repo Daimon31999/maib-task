@@ -40,9 +40,9 @@ export default function MyTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.table.map((row) => {
+            {data.table.map((row, index) => {
               return (
-                <TableRow key={row.date.toString()}>
+                <TableRow key={row.date.toString() + index}>
                   <TableCell component='th' scope='row'>
                     {row.date.getDate()}/
                     {row.date.getMonth().toString().length < 2
