@@ -7,6 +7,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
+import moment from 'moment'
 
 import data from '../data/data'
 
@@ -44,11 +45,7 @@ export default function MyTable() {
               return (
                 <TableRow key={row.date.toString() + index}>
                   <TableCell component='th' scope='row'>
-                    {row.date.getDate()}/
-                    {row.date.getMonth().toString().length < 2
-                      ? '0' + row.date.getMonth()
-                      : row.date.getMonth()}
-                    /{row.date.getFullYear()}
+                    {moment(row.date).format('DD/MM/YYYY')}
                   </TableCell>
                   <TableCell>{row.totalUsers}</TableCell>
                   <TableCell>{row.uniqueUsers}</TableCell>
