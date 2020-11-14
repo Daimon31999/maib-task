@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Support() {
   const classes = useStyles()
-  const [idnp, setIdnp] = useState(null)
+  const [idnp, setIdnp] = useState(undefined)
   const [phone, setPhone] = useState(null)
 
   const [date, setDate] = useState(null)
