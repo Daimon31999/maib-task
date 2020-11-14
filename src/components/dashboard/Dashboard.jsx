@@ -70,7 +70,7 @@ export default function Dashboard() {
       <Chart dateRange={dateRange} />
 
       <br />
-      <MyTable />
+      <MyTable dateRange={dateRange} />
     </>
   )
 }

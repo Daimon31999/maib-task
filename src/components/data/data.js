@@ -74,36 +74,47 @@ export default {
     },
   ],
   chart: [
-    { name: 'Page A', uc: 2500 },
-    { name: 'Page B', uc: 1000 },
-    { name: 'Page C', uc: 10000 },
-    { name: 'Page D', uc: 4500 },
-    { name: 'Page E', uc: 5000 },
-    { name: 'Page F', uc: 10000 },
+    { name: 'Page A', uc: 500 },
+    { name: 'Page B', uc: 200 },
+    { name: 'Page C', uc: 900 },
+    { name: 'Page D', uc: 300 },
+    { name: 'Page E', uc: 500 },
+    { name: 'Page F', uc: 600 },
   ],
+
   table: [
     {
-      date: new Date(2018, 8, 21),
+      date: new Date(2020, 10, 1),
       totalUsers: 79,
       uniqueUsers: 39,
     },
     {
-      date: new Date(2018, 8, 22),
+      date: new Date(2020, 10, 10),
       totalUsers: 32,
       uniqueUsers: 12,
     },
     {
-      date: new Date(2018, 8, 22),
+      date: new Date(2020, 10, 11),
+      totalUsers: 42,
+      uniqueUsers: 12,
+    },
+    {
+      date: new Date(2020, 10, 13),
+      totalUsers: 82,
+      uniqueUsers: 12,
+    },
+    {
+      date: new Date(2020, 10, 30),
       totalUsers: 32,
       uniqueUsers: 12,
     },
     {
-      date: new Date(2018, 7, 22),
+      date: new Date(2020, 9, 15),
       totalUsers: 32,
       uniqueUsers: 12,
     },
     {
-      date: new Date(2018, 8, 22),
+      date: new Date(2020, 8, 22),
       totalUsers: 32,
       uniqueUsers: 12,
     },

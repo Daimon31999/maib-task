@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -17,9 +17,9 @@ const useStyles = makeStyles({
   },
 })
 
-export default function MyTable() {
+export default function MyTable({ dateRange }) {
   const classes = useStyles()
-
+  let rowCount = 0
   return (
     <div>
       <TableContainer component={Paper}>
@@ -42,16 +42,40 @@ export default function MyTable() {
           </TableHead>
           <TableBody>
             {data.table.map((row, index) => {
-              return (
-                <TableRow key={row.date.toString() + index}>
-                  <TableCell component='th' scope='row'>
-                    {moment(row.date).format('DD/MM/YYYY')}
-                  </TableCell>
-                  <TableCell>{row.totalUsers}</TableCell>
-                  <TableCell>{row.uniqueUsers}</TableCell>
-                  <TableCell>{row.uniqueUsers}</TableCell>
-                </TableRow>
-              )
+              if (
+                moment(row.date).isBetween(
+                  dateRange.startDate,
+                  dateRange.endDate
+                )
+              ) {
+                rowCount++
+                return (
+                  <TableRow key={row.date.toString() + index}>
+                    <TableCell component='th' scope='row'>
+                      {moment(row.date).format('DD/MM/YYYY')}
+                    </TableCell>
+                    <TableCell>{row.totalUsers}</TableCell>
+                    <TableCell>{row.uniqueUsers}</TableCell>
+                    <TableCell>{row.uniqueUsers}</TableCell>
+                  </TableRow>
+                )
+              }
+              if (index === data.table.length - 1 && !rowCount) {
+                return (
+                  <TableRow key={row.date.toString() + index}>
+                    <TableCell component='th' scope='row'>
+                      <span
+                        style={{
+                          color: 'red',
+                          fontWeight: 'bold',
+                          fontSize: '1.2rem',
+                        }}>
+                        No Data
+                      </span>
+                    </TableCell>
+                  </TableRow>
+                )
+              }
             })}
           </TableBody>
         </Table>
