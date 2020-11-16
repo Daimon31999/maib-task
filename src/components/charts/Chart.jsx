@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import data from '../data/data'
 import moment from 'moment'
 
@@ -14,6 +14,21 @@ import {
 import { Card, CardContent } from '@material-ui/core'
 
 const Chart = ({ dateRange }) => {
+  const [dataChart, setDataChart] = useState(data.chart)
+
+  useEffect(() => {
+    let tmp = data.chart.filter((item) => {
+      let b = moment(item.date).isBetween(
+        dateRange.startDate,
+        dateRange.endDate,
+        undefined,
+        '[]'
+      )
+      return b
+    })
+    setDataChart(tmp)
+  }, [dateRange])
+
   return (
     <>
       <Card>
@@ -31,7 +46,7 @@ const Chart = ({ dateRange }) => {
           </div>
           <ResponsiveContainer width='100%' height={400}>
             <AreaChart
-              data={data.chart}
+              data={dataChart}
               margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id='colorPv' x1='0' y1='0' x2='0' y2='1'>

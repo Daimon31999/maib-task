@@ -74,12 +74,15 @@ export default {
     },
   ],
   chart: [
-    { name: 'Page A', uc: 500 },
-    { name: 'Page B', uc: 200 },
-    { name: 'Page C', uc: 900 },
-    { name: 'Page D', uc: 300 },
-    { name: 'Page E', uc: 500 },
-    { name: 'Page F', uc: 600 },
+    { name: 'Page A', uc: 500, date: new Date(2020, 10, 1) },
+    { name: 'Page B', uc: 200, date: new Date(2020, 10, 10) },
+    { name: 'Page C', uc: 900, date: new Date(2020, 10, 11) },
+    { name: 'Page D', uc: 300, date: new Date(2020, 10, 30) },
+    { name: 'Page E', uc: 500, date: new Date(2020, 8, 22) },
+    { name: 'Page F', uc: 600, date: new Date(2020, 9, 15) },
+    { name: 'Page A', uc: 1000, date: new Date(2020, 9, 10) },
+    { name: 'Page B', uc: 300, date: new Date(2020, 9, 12) },
+    { name: 'Page C', uc: 600, date: new Date(2020, 9, 13) },
   ],
 
   table: [
@@ -120,10 +123,3 @@ export default {
     },
   ],
 }
-
-// { name: 'Page A', uc: 2500 },
-//   { name: 'Page B', uc: 1000 },
-//   { name: 'Page C', uc: 10000 },
-//   { name: 'Page D', uc: 4500 },
-//   { name: 'Page E', uc: 5000 },
-//   { name: 'Page F', uc: 10000 },
