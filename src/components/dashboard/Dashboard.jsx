@@ -1,35 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Card, CardContent } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 
 import Chart from '../charts/Chart'
 import MyTable from '../tables/DashboardTable'
 import Title from '../Title'
 import PeriodPicker from '../PeriodPicker'
-import { makeStyles } from '@material-ui/core/styles'
+import DashboardCard from '../dashboard/DashboardCard'
 import data from '../data/data'
 import moment from 'moment'
 
-const useStyles = makeStyles({
-  card: {
-    width: '340px',
-  },
-  cardContent: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'baseline',
-  },
-  installs: {
-    fontWeight: '600',
-  },
-  boost: {
-    letterSpacing: '-0.2px',
-  },
-})
-
 export default function Dashboard() {
-  const classes = useStyles()
   let d = new Date() // tmp date object
   let startDate = d.setDate(d.getDate() - 30) // 30 day ago
   let endDate = new Date()
@@ -43,7 +23,7 @@ export default function Dashboard() {
   const [dataChart, setDataChart] = useState(data.chart)
 
   useEffect(() => {
-    let tmp = data.chart.filter((item) =>
+    let filteredData = data.chart.filter((item) =>
       moment(item.date).isBetween(
         dateRange.startDate,
         dateRange.endDate,
@@ -51,7 +31,7 @@ export default function Dashboard() {
         '[]'
       )
     )
-    setDataChart(tmp)
+    setDataChart(filteredData)
   }, [dateRange])
 
   return (
@@ -71,17 +51,7 @@ export default function Dashboard() {
         />
       </div>
       <br />
-      <Card className={classes.card}>
-        <CardContent>
-          <span className={classes.installs}>
-            Instalari pe dispozitive active
-          </span>
-          <div className={classes.cardContent}>
-            <h1>5,489</h1>
-            <span className={classes.boost}>+3.79% vs previous 30days</span>
-          </div>
-        </CardContent>
-      </Card>
+      <DashboardCard />
       <br />
       <Chart dateRange={dateRange} dataChart={dataChart} />
 
