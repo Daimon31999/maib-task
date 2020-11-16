@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, CardContent } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 
@@ -7,6 +7,8 @@ import MyTable from '../tables/DashboardTable'
 import Title from '../Title'
 import PeriodPicker from '../PeriodPicker'
 import { makeStyles } from '@material-ui/core/styles'
+import data from '../data/data'
+import moment from 'moment'
 
 const useStyles = makeStyles({
   card: {
@@ -38,6 +40,20 @@ export default function Dashboard() {
     endDate: endDate,
   })
 
+  const [dataChart, setDataChart] = useState(data.chart)
+
+  useEffect(() => {
+    let tmp = data.chart.filter((item) =>
+      moment(item.date).isBetween(
+        dateRange.startDate,
+        dateRange.endDate,
+        undefined,
+        '[]'
+      )
+    )
+    setDataChart(tmp)
+  }, [dateRange])
+
   return (
     <>
       <Title title='Dashboard' />
@@ -67,7 +83,7 @@ export default function Dashboard() {
         </CardContent>
       </Card>
       <br />
-      <Chart dateRange={dateRange} />
+      <Chart dateRange={dateRange} dataChart={dataChart} />
 
       <br />
       <MyTable dateRange={dateRange} />

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import data from '../data/data'
+import React from 'react'
 import moment from 'moment'
 
 import {
@@ -13,22 +12,7 @@ import {
 } from 'recharts'
 import { Card, CardContent } from '@material-ui/core'
 
-const Chart = ({ dateRange }) => {
-  const [dataChart, setDataChart] = useState(data.chart)
-
-  useEffect(() => {
-    let tmp = data.chart.filter((item) => {
-      let b = moment(item.date).isBetween(
-        dateRange.startDate,
-        dateRange.endDate,
-        undefined,
-        '[]'
-      )
-      return b
-    })
-    setDataChart(tmp)
-  }, [dateRange])
-
+const Chart = ({ dateRange, dataChart }) => {
   return (
     <>
       <Card>
