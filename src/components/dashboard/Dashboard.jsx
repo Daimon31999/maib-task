@@ -21,9 +21,10 @@ export default function Dashboard() {
   })
 
   const [dataChart, setDataChart] = useState(data.chart)
+  const [dataTable, setDataTable] = useState(data.table)
 
   useEffect(() => {
-    let filteredData = data.chart.filter((item) =>
+    let filteredDataChart = data.chart.filter((item) =>
       moment(item.date).isBetween(
         dateRange.startDate,
         dateRange.endDate,
@@ -31,7 +32,18 @@ export default function Dashboard() {
         '[]'
       )
     )
-    setDataChart(filteredData)
+
+    let filteredDataTable = data.table.filter((item) =>
+      moment(item.date).isBetween(
+        dateRange.startDate,
+        dateRange.endDate,
+        undefined,
+        '[]'
+      )
+    )
+
+    setDataChart(filteredDataChart)
+    setDataTable(filteredDataTable)
   }, [dateRange])
 
   return (
@@ -56,7 +68,7 @@ export default function Dashboard() {
       <Chart dateRange={dateRange} dataChart={dataChart} />
 
       <br />
-      <MyTable dateRange={dateRange} />
+      <MyTable dateRange={dateRange} dataTable={dataTable} />
     </>
   )
 }
